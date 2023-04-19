@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.w3.org/1999/xhtml">
+
+<!--头部-->
+<div class="container" th:fragment="topbar">
+    <div class="logo">
+        <!--<a th:href="@{/main.html}">良品优鲜管理系统</a></div>-->
+        <a th:href="@{/main.html}">管理员系统</a></div>
+    <div class="left_open">
+        <a><i title="展开左侧栏" class="iconfont">&#xe699;</i></a>
+    </div>
+    <ul class="layui-nav left fast-add" lay-filter="">
+        <li class="layui-nav-item">
+            <a>+新增</a>
+            <dl class="layui-nav-child">
+                <!-- 二级菜单 -->
+                <dd>
+                    <a onclick="xadmin.open('最大化','http://www.baidu.com','','',true)">
+                        <i class="iconfont">&#xe6a2;</i>弹出最大化</a></dd>
+                <dd>
+                    <a onclick="xadmin.open('弹出自动宽高','http://www.baidu.com')">
+                        <i class="iconfont">&#xe6a8;</i>弹出自动宽高</a></dd>
+                <dd>
+                    <a onclick="xadmin.open('弹出指定宽高','http://www.baidu.com',500,300)">
+                        <i class="iconfont">&#xe6a8;</i>弹出指定宽高</a></dd>
+                <dd>
+
+                    <a onclick="xadmin.add_tab('在tab打开','admin/index2')">
+                        <i class="iconfont">&#xe6b8;</i>在tab打开</a></dd>
+                <dd>
+                    <a onclick="xadmin.add_tab('在tab打开刷新','admin/index3',true)">
+                        <i class="iconfont">&#xe6b8;</i>在tab打开刷新</a></dd>
+            </dl>
+        </li>
+    </ul>
+
+    <ul class="layui-nav right" lay-filter="">
+        <li class="layui-nav-item">
+            <a href="javascript:;">小工具</a>
+            <dl class="layui-nav-child">
+                <!-- 二级菜单 -->
+                <dd>
+                    <a onclick="xadmin.open('百度','http://www.baidu.com')">百度</a></dd>
+                <dd>
+                    <a onclick="xadmin.open('资讯','http://www.cdnkxy.com')">资讯</a></dd>
+                <dd>
+                    <a href="./login.html">退出</a></dd>
+            </dl>
+        </li>
+        <li class="layui-nav-item to-index">
+            <a href="/">注销</a></li>
+    </ul>
+</div>
+
+
+
+<!--侧边栏-->
+<div class="left-nav" th:fragment="sidebar">
+    <div id="side-nav">
+        <ul id="nav">
+
+            <!--用户管理-->
+            <li shiro:lacksPermission="admin:cen">
+                <a href="javascript:;">
+                    <i class="iconfont left-nav-li" lay-tips="管理员管理">&#xe6b8;</i>
+                    <cite>添加管理员</cite>
+                    <i class="iconfont nav_right">&#xe697;</i></a>
+
+                <ul class="sub-menu">
+
+                    <li>
+                        <a onclick="xadmin.add_tab('添加管理员','/a1')">
+                            <i class="iconfont">&#xe6a7;</i>
+                            <cite>添加管理员</cite></a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+
+
+
+        </ul>
+    </div>
+</div>
+
+
+
+<!--关闭栏-->
+
+
+
+
+</html>
